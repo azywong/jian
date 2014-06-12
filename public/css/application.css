@@ -1,0 +1,56 @@
+/* GENERAL STYLES */
+@font-face {
+  font-family: 'Fragment';
+  src: url('/fonts/Fragmentcore.otf');
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+   font-family:"Helvetica Neue", sans-serif;
+   font-size: 0.85em;
+   background-color: #1C292E;
+}
+
+/* HEADER STYLES */
+header {
+  background-color: tomato;
+  padding: 0.5%;
+  margin-bottom: 2%;
+}
+
+header h1 a {
+  text-decoration: none;
+}
+
+header h1 {
+  font-family: 'Fragment';
+  margin-left: 2%;
+  font-size: 3.5em;
+}
+
+
+/* TITLE STYLES */
+h2 {
+  margin-bottom: 1em;
+  padding: 3%;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+  color: tomato;
+}
+
+/* IMAGE SEARCH STYLES */
+.searchimage {
+  margin-bottom: 5em;
+  padding: 3%;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+.tag {
+  text-align: center;
+  background-color: #efefef;
+  border-radius: 3px;
+  border: 1px solid #dedede;
+}
