@@ -22,6 +22,8 @@ require 'erb'
 
 require 'instagram'
 
+require 'bcrypt'
+
 enable :sessions
 
 # Some helper constants for path-centric logic

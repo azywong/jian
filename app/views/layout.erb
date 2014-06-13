@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/application.css">
@@ -14,15 +13,33 @@
   </head>
   <body>
     <header class="sixteen columns">
-      <h1><a href="/">jian</a></h1>
-      <% if session[:id] == nil %>
-        <!-- login link
-        sign up link -->
-      <% else %>
-        <!-- user name with link to profile
-        logout button
-        tag search bar?-->
-      <% end %>
+      <a class="logo" href="/">jian</a>
+      <div class="user_control">
+        <% if logged_in? %>
+        <ul class="header_form">
+          <li>
+            <form id="search-tags" method="post" action="/tags">
+              <input type="tagsearch" name="tagsearch" placeholder="search value here">
+              <input type="submit" value="search">
+             </form>
+           </li>
+           <li><form id="logout" method="post" action="/sessions/<%= @user.id %>">
+              <input name="_method" type="hidden" value="delete" />
+              <input type="submit" value="Logout"></li>
+         </ul>
+        <% else %>
+          <ul class="header_form">
+            <li>
+              <form id="login_form" action="/sessions" method="post">
+              User Name: <input type="text" name="username" placeholder="username">
+              Password: <input type="password" name="password" placeholder="password">
+              <input type="submit" value="Login">
+              </form>
+            </li>
+            <li><a href="/users/new">Create Account?</a></li>
+          </ul>
+        <% end %>
+      </div>
     </header>
     <div class="container">
       <div class="eight columns offset-by-four">

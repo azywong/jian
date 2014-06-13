@@ -1,5 +1,7 @@
-<% if session[:access_token] %>
-  <% redirect '/nav' %>
-<% else %>
-  <a href="/oauth/connect">Connect with Instagram</a>
-<% end %>
+<div class="bubble">
+  <% if connected? %>
+    <% redirect '/nav' %>
+  <% else %>
+    <a href="/oauth/connect">Connect with Instagram</a>
+  <% end %>
+</div>

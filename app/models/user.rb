@@ -1,7 +1,15 @@
 class User < ActiveRecord::Base
   include BCrypt
 
-  #validates
+  has_many :tags, through: :interests
+
+  validates :name, presence: true
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: /\w+\@\w+\.\w*/, message: "only allows valid emails" }
+
 
   def password
     @password ||= Password.new(password_hash)
