@@ -1,5 +1,5 @@
 <h2>Tag Name = <%= @tags[0].name %>. Media Count =  <%= @tags[0].media_count %>. </h2>
-  <% for media_item in @client.tag_recent_media(@tags[0].name) %>
+  <% @client.tag_recent_media(@tags[0].name).each do |media_item| %>
     <div class="searchimage">
       <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
       <div class="tags">
