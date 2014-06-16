@@ -11,10 +11,6 @@ get "/" do
   erb :index
 end
 
-get "/nav" do
-  erb :nav
-end
-
 #------AUTHENTICATION------
 get "/oauth/connect" do
   redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
@@ -68,13 +64,14 @@ get '/tags/:tagsearch' do
   erb :tag
 end
 
-post '/tag/:name' do
-  @tag = Tag.find_by_name(params[:name])
-  if @tag
-    # add to user's interests
+post '/user/:id/add/:name' do
+  tag = Tag.find_by_name(params[:name])
+  user = User.find_by_id(session[:id])
+  if tag != nil
+    user.tags << tag
   else
-    # create tag
-    # add to user's interests
+    tag = Tag.create(name: params[:name])
+    user.tags << tag
   end
-  erb :tag
+  params[:url].to_json
 end

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include BCrypt
-
+  has_many :interests
   has_many :tags, through: :interests
 
   validates :name, presence: true

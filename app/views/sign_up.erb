@@ -1,13 +1,13 @@
 <div class="bubble">
   <form id="signup_form" action="/users" method="post">
   <p>User Name:<br>
-    <input type="text" name="user[username]" placeholder="unique username"></p>
+    <input type="text" name="user[username]" placeholder="unique username" required></p>
   <p>Name:<br>
-    <input type="text" name="user[name]" placeholder="name"></p>
+    <input type="text" name="user[name]" placeholder="name" required></p>
   <p>Email:<br>
-    <input type="text" name="user[email]" placeholder="email@example.com"></p>
+    <input type="email" name="user[email]" placeholder="email@example.com" required></p>
   <p>Password:<br>
-    <input type="password" name="user[password]" placeholder="password"></p>
+    <input type="password" name="user[password]" placeholder="password" required></p>
   <input type="submit" value="Submit">
   </form>
 </div>

@@ -79,18 +79,18 @@ h2 {
 
 
 /* IMAGE SEARCH STYLES */
-.tag {
+.tag a {
   text-align: center;
   background-color: #efefef;
   border-radius: 3px;
   border: 1px solid #dedede;
   padding: 0.5%;
   line-height: 2em;
+  color: #444444;
 }
 
-.tag a {
+.tag a:hover {
   text-decoration: none;
-  color: #444444;
 }
 
 /* FORM STYLES */
@@ -102,7 +102,19 @@ input {
   background-color: #FFFFFF;
   border: 1px solid #dedede;
   color: #444444;
+  border-radius: 3px;
 }
 input:hover {
   background-color: #efefef;
+}
+
+/* WITHIN BUBBLE STYLES */
+a {
+  color: #1C292E;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  text-decoration: underline;
 }

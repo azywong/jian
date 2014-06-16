@@ -1,7 +1,10 @@
+<h2>Tags You're Tracking</h2>
 <div class="bubble">
-  <% if connected? %>
-    <% redirect '/nav' %>
+  <% if logged_in? %>
+    <% @user.tags.uniq.each do |tag| %>
+      <p><%= tag.name %></p>
+    <% end %>
   <% else %>
-    <a href="/oauth/connect">Connect with Instagram</a>
+    "sigh"
   <% end %>
 </div>

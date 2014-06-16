@@ -19,20 +19,23 @@
         <ul class="header_form">
           <li>
             <form id="search-tags" method="post" action="/tags">
-              <input type="tagsearch" name="tagsearch" placeholder="search value here">
+              <input type="text" name="tagsearch" placeholder="search value here">
               <input type="submit" value="search">
              </form>
            </li>
-           <li><form id="logout" method="post" action="/sessions/<%= @user.id %>">
+           <li>
+            <form id="logout" method="post" action="/sessions/<%= @user.id %>">
               <input name="_method" type="hidden" value="delete" />
-              <input type="submit" value="Logout"></li>
+              <input type="submit" value="Logout">
+            </form>
+          </li>
          </ul>
         <% else %>
           <ul class="header_form">
             <li>
               <form id="login_form" action="/sessions" method="post">
-              User Name: <input type="text" name="username" placeholder="username">
-              Password: <input type="password" name="password" placeholder="password">
+              User Name: <input type="text" name="username" placeholder="username" required>
+              Password: <input type="password" name="password" placeholder="password" required>
               <input type="submit" value="Login">
               </form>
             </li>

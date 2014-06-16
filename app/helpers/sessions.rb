@@ -1,7 +1,7 @@
 helpers do
   def logged_in?
     if session[:id]
-      @user = User.find(session[:id])
+      @user = User.find_by_id(session[:id])
     else
       nil
     end
