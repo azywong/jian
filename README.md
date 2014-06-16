@@ -19,5 +19,13 @@
   * instagram api working
   * preliminary styles
   * search tag function
+  * add tags function
+  * user create/login/logout
+
+####To Implement:
+  * error handling
+  * deleting tags user is following
+  * aggregate feed
+  * testing
 
 
