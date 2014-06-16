@@ -46,6 +46,11 @@
     </header>
     <div class="container">
       <div class="eight columns offset-by-four">
+        <% if logged_in? %>
+          <div class="userbar">
+            <!--tags following, connect with IG?, tags blocked?, random/top images?, -->
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>

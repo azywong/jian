@@ -1,10 +1,6 @@
-<h2>Tags You're Tracking</h2>
-<div class="bubble">
   <% if logged_in? %>
-    <% @user.tags.uniq.each do |tag| %>
-      <p><%= tag.name %></p>
-    <% end %>
+    <!--customized feed generated-->
   <% else %>
-    "sigh"
+    <h2>wassabe</h2>
+    <!--random feed generated-->
   <% end %>
-</div>

@@ -75,3 +75,7 @@ post '/user/:id/add/:name' do
   end
   params[:url].to_json
 end
+
+get '/user/:id/tags' do
+  erb :tracking
+end
