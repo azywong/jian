@@ -2,7 +2,7 @@
 
 ##About
 
-  * An app using the instgram API to only show you images that are relevant to your interests!
+  * A web app using the instgram API to only show you images that are relevant to your interests!
   * full stack web app
 
 
@@ -26,6 +26,6 @@
   * error handling
   * deleting tags user is following
   * aggregate feed
-  * testing
+  * rspec testing
 
 
