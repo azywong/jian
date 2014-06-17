@@ -36,18 +36,19 @@ body {
 .userbar li {
   list-style-type: none;
   width: 12%;
-  display: inline;;
+  display: inline;
 }
 .userbar li a {
   text-decoration: none;
-  color: #1C292E;
+  color: #1D353D;
   padding: 3%;
-  background-color: #FFAD8F;
-  border-radius: 7px
+  background-color: #FFFFFF;
+  border-radius: 7px;
+  font-weight: bold;
 }
 .userbar li a:hover {
   text-decoration: none;
-  background-color: #FFA27F;
+  background-color: #efefef;
 }
 
 /* HEADER STYLES */

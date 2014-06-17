@@ -15,17 +15,27 @@
 
 ##Releases
 
-####Release 0:
+####MVP
   * instagram api working
   * preliminary styles
   * search tag function
-  * add tags function
   * user create/login/logout
+
+####Release 0:
+  * add tags function
+  * delete tags function
+  * top images/browse
 
 ####To Implement:
   * error handling
-  * deleting tags user is following
   * aggregate feed
   * rspec testing
+  * icons for userbar
+
+####Stretch:
+  * connect with instagram
+  * like/comment on images
+  * choose interesting tags on sign up
+  * implement tag blocking
 
 

@@ -1,0 +1,23 @@
+<h2>browsing random images</h2>
+  <% @media.each do |media_item| %>
+    <div class="bubble">
+      <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
+      <% if logged_in? %>
+        <div class="tags">
+          <% media_item.tags.each do |tag| %>
+            <% if @usertags.include?(tag) %>
+              <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
+            <% else %>
+              <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="tags">
+          <% media_item.tags.each do |tag| %>
+            <span class="tag"><a href="/tags/<%= tag %>"><%= tag %></a></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>

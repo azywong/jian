@@ -3,11 +3,15 @@ CALLBACK_URL = "http://localhost:9393/oauth/callback/"
 Instagram.configure do |config|
   config.client_id = "bbda684a4c6041308b56b2eb99b381a4"
   config.client_secret = "c2d5fd84ed594c93b1b19a7dfb10a02a"
-  # For secured endpoints only
-  #config.client_ips = '<Comma separated list of IPs>'
 end
 
 get "/" do
+  client = Instagram.client(:access_token => session[:access_token])
+  @media = client.media_popular
+  if logged_in?
+    usertags = User.find_by_id(session[:id]).tags
+    @usertags = usertags.map { |tag| tag.name }
+  end
   erb :index
 end
 
@@ -70,7 +74,7 @@ get '/tags/:tagsearch' do
   erb :tag
 end
 
-post '/user/:id/tag/:name' do
+post '/users/:id/tag/:name' do
   tag = Tag.find_by_name(params[:name])
   user = User.find_by_id(session[:id])
   if tag != nil
@@ -82,8 +86,22 @@ post '/user/:id/tag/:name' do
   params[:url].to_json
 end
 
-delete '/user/:id/tag/:name' do
+delete '/users/:id/tag/:name' do
   user = User.find_by_id(params[:id])
   tags = user.tags.where(name:params[:name]).destroy_all
   params[:url].to_json
+end
+
+
+#------IMAGES------
+get '/images' do
+  client = Instagram.client(:access_token => session[:access_token])
+  usertags = User.find_by_id(session[:id]).tags
+  @usertags = usertags.map { |tag| tag.name }
+  @media = client.media_popular
+  erb :browse
+end
+
+get '/users/:id/images' do
+erb :feed
 end

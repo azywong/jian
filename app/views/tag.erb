@@ -5,9 +5,9 @@
       <div class="tags">
         <% media_item.tags.each do |tag| %>
           <% if @usertags.include?(tag) %>
-            <span class="tag"><a href="/user/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
+            <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
           <% else %>
-            <span class="tag"><a href="/user/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
+            <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
           <% end %>
         <% end %>
       </div>
