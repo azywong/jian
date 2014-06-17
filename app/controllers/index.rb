@@ -54,6 +54,10 @@ post '/users' do
 end
 
 #------TAGS------
+get '/tags' do
+  erb :tracking
+end
+
 post '/tags' do
   redirect "/tags/#{params[:tagsearch]}"
 end
@@ -74,8 +78,4 @@ post '/user/:id/add/:name' do
     user.tags << tag
   end
   params[:url].to_json
-end
-
-get '/user/:id/tags' do
-  erb :tracking
 end
