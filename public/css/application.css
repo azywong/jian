@@ -24,6 +24,32 @@ body {
   border-radius: 7px;
 }
 
+/* USERBAR STYLES */
+.userbar {
+  margin-bottom: 2em;
+}
+.userbar ul {
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0;
+}
+.userbar li {
+  list-style-type: none;
+  width: 12%;
+  display: inline;;
+}
+.userbar li a {
+  text-decoration: none;
+  color: #1C292E;
+  padding: 3%;
+  background-color: #FFAD8F;
+  border-radius: 7px
+}
+.userbar li a:hover {
+  text-decoration: none;
+  background-color: #FFA27F;
+}
+
 /* HEADER STYLES */
 header {
   background-color: tomato;
@@ -93,6 +119,10 @@ h2 {
   text-decoration: none;
 }
 
+.tag .tagged {
+  background-color: #C6F1FF;
+}
+
 /* FORM STYLES */
 form {
   display: inline;
@@ -113,8 +143,18 @@ a {
   color: #1C292E;
   text-decoration: none;
 }
-
 a:hover {
   color: #000000;
   text-decoration: underline;
+}
+
+.bubble table {
+  margin: 0 auto;
+  width: 80%;
+}
+.bubble td {
+  padding: 3%;
+}
+.bubble table tr:nth-child(even) {
+  background-color: #C6F1FF;
 }

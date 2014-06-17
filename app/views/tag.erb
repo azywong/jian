@@ -4,9 +4,11 @@
       <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
       <div class="tags">
         <% media_item.tags.each do |tag| %>
-          <span class="tag">
-            <a href="/user/<%= session[:id] %>/add/<%= tag %>"><%= tag %></a>
-          </span>
+          <% if @usertags.include?(tag) %>
+            <span class="tag"><a href="/user/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
+          <% else %>
+            <span class="tag"><a href="/user/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
+          <% end %>
         <% end %>
       </div>
     </div>

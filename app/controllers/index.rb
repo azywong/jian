@@ -65,10 +65,12 @@ end
 get '/tags/:tagsearch' do
   @client = Instagram.client(:access_token => session[:access_token])
   @tags = @client.tag_search(params[:tagsearch])
+  usertags = User.find_by_id(session[:id]).tags
+  @usertags = usertags.map { |tag| tag.name }
   erb :tag
 end
 
-post '/user/:id/add/:name' do
+post '/user/:id/tag/:name' do
   tag = Tag.find_by_name(params[:name])
   user = User.find_by_id(session[:id])
   if tag != nil
@@ -77,5 +79,11 @@ post '/user/:id/add/:name' do
     tag = Tag.create(name: params[:name])
     user.tags << tag
   end
+  params[:url].to_json
+end
+
+delete '/user/:id/tag/:name' do
+  user = User.find_by_id(params[:id])
+  tags = user.tags.where(name:params[:name]).destroy_all
   params[:url].to_json
 end

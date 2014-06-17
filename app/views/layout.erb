@@ -48,7 +48,11 @@
       <div class="eight columns offset-by-four">
         <% if logged_in? %>
           <div class="userbar">
-            <a href="/tags">tracked tags</a><!--tags following, connect with IG?, tags blocked?, random/top images?, -->
+            <ul>
+            <li><a href="/tags">tracked tags</a></li>
+            <li><a href="">blocked tags</a></li>
+            <li><a href="">browse</a></li><!-- connect with IG?, tags blocked?, random/top images?, -->
+            </ul>
           </div>
         <% end %>
         <%= yield %>
