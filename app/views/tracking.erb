@@ -1,17 +1,23 @@
 <% if logged_in? %>
-  <h2>Tags You're Tracking</h2>
+  <% if @user.tags.length > 0 %>
+    <h2>Tags You're Tracking</h2>
+    <div class="bubble">
+      <table>
+        <% @user.tags.uniq.each do |tag| %>
+          <tr class="<%= tag.name %>">
+            <td><%= tag.name %></td>
+            <td><a href="/tags/<%= tag.name %>">checkout tag</a></td>
+            <td><form action="/users/<%= session[:id] %>/tag/<%= tag.name %>" method="post">
+              <input name="_method" type="hidden" value="delete" />
+              <input type="submit" value="delete" />
+            </form></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% else %>
   <div class="bubble">
-    <table>
-      <% @user.tags.uniq.each do |tag| %>
-        <tr class="<%= tag.name %>">
-          <td><%= tag.name %></td>
-          <td><a href="/tags/<%= tag.name %>">checkout tag</a></td>
-          <td><form action="/users/<%= session[:id] %>/tag/<%= tag.name %>" method="post">
-            <input name="_method" type="hidden" value="delete" />
-            <input type="submit" value="delete" />
-          </form></td>
-        </tr>
-      <% end %>
-    </table>
+    <p>You have no tracked tags!  Go search for something</p>
   </div>
+  <% end %>
 <% end %>

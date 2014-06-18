@@ -26,14 +26,14 @@
   * delete tags function
   * top images/browse
   * aggregate feed
+  * connect with instagram
 
 ####To Implement:
-  * error handling
   * rspec testing
-  * icons for userbar
 
 ####Stretch:
-  * connect with instagram
+  * error handling
+  * icons for userbar
   * like/comment on images
   * choose interesting tags on sign up
   * implement tag blocking

@@ -50,9 +50,9 @@
           <% if logged_in? %>
             <div class="userbar">
               <ul>
-              <li><a href="/tags">tracked tags</a></li>
-              <li><a href="/images">random</a></li>
-              <li><a href="/users/<%= session[:id] %>/images">browse</a></li><!-- connect with IG?, tags blocked?, random/top images?, -->
+                <li class="userbar_tag"><a href="/tags">tracked</a></li>
+                <li class="userbar_popular"><a href="/images">popular</a></li>
+                <li class="userbar_browse"><a href="/users/<%= session[:id] %>/images">browse</a></li>
               </ul>
             </div>
           <% end %>
@@ -62,6 +62,6 @@
       <footer>
        <p><a href="http://azywong.github.io/">Allison Wong</a> | <a href="http://instagram.com">Instagram</a></p>
       </footer>
-    </div class="wrapper">
+    </div>
   </body>
 </html>

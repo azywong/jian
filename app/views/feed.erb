@@ -1,20 +1,26 @@
 <h2>browsing customized feed</h2>
-  <% @tags.each do |tag| %>
-    <% all_media_items = @client.tag_recent_media(tag[0].name)%>
-    <% media_items = [] %>
-    <% 5.times{ media_items << all_media_items.sample } %>
-    <% media_items.each do |media_item| %>
-      <div class="bubble">
-        <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
-        <div class="tags">
-          <% media_item.tags.each do |tag| %>
-            <% if @usertags.include?(tag) %>
-              <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
-            <% else %>
-              <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
+  <% if @tags.length > 0 %>
+    <% @tags.each do |tag| %>
+      <% all_media_items = @client.tag_recent_media(tag[0].name)%>
+      <% media_items = [] %>
+      <% 5.times{ media_items << all_media_items.sample } %>
+      <% media_items.each do |media_item| %>
+        <div class="bubble">
+          <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
+          <div class="tags">
+            <% media_item.tags.each do |tag| %>
+              <% if @usertags.include?(tag) %>
+                <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>" class="tagged"><%= tag %></a></span>
+              <% else %>
+                <span class="tag"><a href="/users/<%= session[:id] %>/tag/<%= tag %>"><%= tag %></a></span>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <div class="bubble">
+      <p>You have no tracked tags!  Go search for something</p>
+    </div>
   <% end %>
