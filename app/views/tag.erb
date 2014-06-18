@@ -1,7 +1,10 @@
 <h2>Tag Name = <%= @tags[0].name %>. Media Count =  <%= @tags[0].media_count %>. </h2>
   <% @client.tag_recent_media(@tags[0].name).each do |media_item| %>
+    <div class="source">
+      <a href="<%= media_item.link %>">source</a>
+    </div>
     <div class="bubble">
-      <a href="<%= media_item.link %>"><img src="<%= media_item.images.standard_resolution.url %>"></a>
+      <img src="<%= media_item.images.standard_resolution.url %>">
       <div class="tags">
         <% media_item.tags.each do |tag| %>
           <% if @usertags.include?(tag) %>

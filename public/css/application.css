@@ -213,3 +213,11 @@ a:hover {
 .bubble table tr:nth-child(even) {
   background-color: #C6F1FF;
 }
+
+/*SOUCE STYLES*/
+.source a {
+  background-color:#FFFFFF;
+  color: tomato;
+  font-weight: bold;
+  border-radius: 7px;
+}
