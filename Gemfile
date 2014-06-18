@@ -23,6 +23,10 @@ gem 'shotgun'
 
 gem 'bcrypt'
 
+gem 'sidekiq'
+
+gem 'pry'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
