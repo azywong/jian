@@ -25,10 +25,10 @@
   * add tags function
   * delete tags function
   * top images/browse
+  * aggregate feed
 
 ####To Implement:
   * error handling
-  * aggregate feed
   * rspec testing
   * icons for userbar
 
@@ -37,5 +37,4 @@
   * like/comment on images
   * choose interesting tags on sign up
   * implement tag blocking
-
 

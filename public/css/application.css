@@ -8,13 +8,34 @@ img {
   max-width: 100%;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-   font-family:"HelveticaNeue", "Helvetica Neue", sans-serif;
-   font-size: 0.85em;
-   color: #1C292E;
-   background-color: #1C292E;
+  font-family:"HelveticaNeue", "Helvetica Neue", sans-serif;
+  font-size: 0.85em;
+  color: #1C292E;
+  background-color: #1C292E;
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: 100%;
+  height: 100%
+}
+
+.wrapper {
+  min-height: 100%;
+}
+
+.container {
+  padding-bottom: 4em;
+}
+
+footer {
+  background-color: #DDDDDD;
+  color: #696969;
+  height: 4em;
+  text-align: center;
+  line-height: 4em;
 }
 
 .bubble {
@@ -48,7 +69,7 @@ body {
 }
 .userbar li a:hover {
   text-decoration: none;
-  background-color: #efefef;
+  background-color: #dedede;
 }
 
 /* HEADER STYLES */

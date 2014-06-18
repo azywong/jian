@@ -24,3 +24,4 @@ var deleteTag = function(event){
     $(event.target.parentElement.parentElement.parentElement).css('display', 'none')
   })
 }
+

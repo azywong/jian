@@ -95,13 +95,19 @@ end
 
 #------IMAGES------
 get '/images' do
-  client = Instagram.client(:access_token => session[:access_token])
-  usertags = User.find_by_id(session[:id]).tags
-  @usertags = usertags.map { |tag| tag.name }
-  @media = client.media_popular
-  erb :browse
+  if logged_in?
+    client = Instagram.client(:access_token => session[:access_token])
+    @media = client.media_popular
+    erb :browse
+  end
 end
 
 get '/users/:id/images' do
-erb :feed
+  if logged_in?
+    @client = Instagram.client(:access_token => session[:access_token])
+    @tags = @usertags.uniq.map do |tag|
+      @client.tag_search(tag)
+    end
+    erb :feed
+  end
 end

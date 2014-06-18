@@ -12,51 +12,56 @@
     <title>jian</title>
   </head>
   <body>
-    <header class="sixteen columns">
-      <a class="logo" href="/">jian</a>
-      <div class="user_control">
-        <% if logged_in? %>
-        <ul class="header_form">
-          <li>
-            <form id="search-tags" method="post" action="/tags">
-              <input type="text" name="tagsearch" placeholder="search value here">
-              <input type="submit" value="search">
-             </form>
-           </li>
-           <li>
-            <form id="logout" method="post" action="/sessions/<%= @user.id %>">
-              <input name="_method" type="hidden" value="delete" />
-              <input type="submit" value="Logout">
-            </form>
-          </li>
-         </ul>
-        <% else %>
+    <div class="wrapper">
+      <header>
+        <a class="logo" href="/">jian</a>
+        <div class="user_control">
+          <% if logged_in? %>
           <ul class="header_form">
             <li>
-              <form id="login_form" action="/sessions" method="post">
-              User Name: <input type="text" name="username" placeholder="username" required>
-              Password: <input type="password" name="password" placeholder="password" required>
-              <input type="submit" value="Login">
+              <form id="search-tags" method="post" action="/tags">
+                <input type="text" name="tagsearch" placeholder="search value here">
+                <input type="submit" value="search">
+               </form>
+             </li>
+             <li>
+              <form id="logout" method="post" action="/sessions/<%= @user.id %>">
+                <input name="_method" type="hidden" value="delete" />
+                <input type="submit" value="Logout">
               </form>
             </li>
-            <li><a href="/users/new">Create Account?</a></li>
-          </ul>
-        <% end %>
-      </div>
-    </header>
-    <div class="container">
-      <div class="eight columns offset-by-four">
-        <% if logged_in? %>
-          <div class="userbar">
-            <ul>
-            <li><a href="/tags">tracked tags</a></li>
-            <li><a href="/images">random</a></li>
-            <li><a href="/users/<%= session[:id] %>/images">browse</a></li><!-- connect with IG?, tags blocked?, random/top images?, -->
+           </ul>
+          <% else %>
+            <ul class="header_form">
+              <li>
+                <form id="login_form" action="/sessions" method="post">
+                User Name: <input type="text" name="username" placeholder="username" required>
+                Password: <input type="password" name="password" placeholder="password" required>
+                <input type="submit" value="Login">
+                </form>
+              </li>
+              <li><a href="/users/new">Create Account?</a></li>
             </ul>
-          </div>
-        <% end %>
-        <%= yield %>
+          <% end %>
+        </div>
+      </header>
+      <div class="container">
+        <div class="eight columns offset-by-four">
+          <% if logged_in? %>
+            <div class="userbar">
+              <ul>
+              <li><a href="/tags">tracked tags</a></li>
+              <li><a href="/images">random</a></li>
+              <li><a href="/users/<%= session[:id] %>/images">browse</a></li><!-- connect with IG?, tags blocked?, random/top images?, -->
+              </ul>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
-    </div>
+      <footer>
+       <p><a href="http://azywong.github.io/">Allison Wong</a> | <a href="http://instagram.com">Instagram</a></p>
+      </footer>
+    </div class="wrapper">
   </body>
 </html>
