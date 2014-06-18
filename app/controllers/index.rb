@@ -6,11 +6,12 @@ Instagram.configure do |config|
 end
 
 get "/" do
-  client = Instagram.client(:access_token => session[:access_token])
-  @media = client.media_popular
+  @client = Instagram.client(:access_token => session[:access_token])
+  @media = @client.media_popular
   if logged_in?
-    usertags = User.find_by_id(session[:id]).tags
-    @usertags = usertags.map { |tag| tag.name }
+    @tags = @usertags.uniq.map do |tag|
+      @client.tag_search(tag)
+    end
   end
   erb :index
 end
