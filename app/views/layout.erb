@@ -20,7 +20,7 @@
           <ul class="header_form">
             <li>
               <form id="search-tags" method="post" action="/tags">
-                <input type="text" name="tagsearch" placeholder="search value here">
+                <input type="text" name="tagsearch" placeholder="search tag">
                 <input type="submit" value="search">
                </form>
              </li>
@@ -50,9 +50,9 @@
           <% if logged_in? %>
             <div class="userbar">
               <ul>
-                <li class="userbar_tag"><a href="/tags">tracked</a></li>
+                <li class="userbar_tag"><a href="/tags">tags</a></li>
                 <li class="userbar_popular"><a href="/images">popular</a></li>
-                <li class="userbar_browse"><a href="/users/<%= session[:id] %>/images">browse</a></li>
+                <li class="userbar_browse"><a href="/users/<%= session[:id] %>/images">tracked</a></li>
               </ul>
             </div>
           <% end %>

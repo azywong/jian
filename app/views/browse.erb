@@ -1,10 +1,16 @@
 <h2>browsing random images</h2>
   <% @media.each do |media_item| %>
-    <div class="source">
+    <span class="source">
       <a href="<%= media_item.link %>">source</a>
-    </div>
+    </span>
+    <span class="likes">
+      <%= media_item.likes[:count] %> Likes
+    </span>
     <div class="bubble">
       <img src="<%= media_item.images.standard_resolution.url %>">
+      <% if media_item.caption %>
+        <p><%= media_item.caption.text.split('#')[0] %></p>
+      <% end %>
       <% if logged_in? %>
         <div class="tags">
           <% media_item.tags.each do |tag| %>

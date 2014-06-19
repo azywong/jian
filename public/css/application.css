@@ -227,5 +227,15 @@ a:hover {
 }
 .source a:hover {
   text-decoration: none;
-  background-color: tomato;
+  background-color: #898989;
+}
+
+/*SOUCE STYLES*/
+.likes {
+  background-color:tomato;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 2% 2% 0% 2%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }

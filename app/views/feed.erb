@@ -5,11 +5,17 @@
       <% media_items = [] %>
       <% 5.times{ media_items << all_media_items.sample } %>
       <% media_items.each do |media_item| %>
-        <div class="source">
+        <span class="source">
           <a href="<%= media_item.link %>">source</a>
-        </div>
+        </span>
+        <span class="likes">
+          <%= media_item.likes[:count] %> Likes
+        </span>
         <div class="bubble">
           <img src="<%= media_item.images.standard_resolution.url %>">
+          <% if media_item.caption %>
+            <p><%= media_item.caption.text.split('#')[0] %></p>
+          <% end %>
           <div class="tags">
             <% media_item.tags.each do |tag| %>
               <% if @usertags.include?(tag) %>

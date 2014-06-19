@@ -1,11 +1,17 @@
 <% if logged_in? %>
-<h2>Tag Name = <%= @tags[0].name %>. Media Count =  <%= @tags[0].media_count %>. </h2>
+<h2>You searched for: <%= @tags[0].name %>.</h2>
   <% @client.tag_recent_media(@tags[0].name).each do |media_item| %>
-    <div class="source">
+    <span class="source">
       <a href="<%= media_item.link %>">source</a>
-    </div>
+    </span>
+    <span class="likes">
+      <%= media_item.likes[:count] %> Likes
+    </span>
     <div class="bubble">
       <img src="<%= media_item.images.standard_resolution.url %>">
+      <% if media_item.caption %>
+        <p><%= media_item.caption.text.split('#')[0] %></p>
+      <% end %>
       <div class="tags">
         <% media_item.tags.each do |tag| %>
           <% if @usertags.include?(tag) %>
