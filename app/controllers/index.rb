@@ -1,10 +1,3 @@
-CALLBACK_URL = "http://localhost:9393/oauth/callback/"
-
-Instagram.configure do |config|
-  config.client_id = "bbda684a4c6041308b56b2eb99b381a4"
-  config.client_secret = "c2d5fd84ed594c93b1b19a7dfb10a02a"
-end
-
 get "/" do
   @client = Instagram.client(:access_token => session[:access_token])
   @media = @client.media_popular
@@ -36,10 +29,8 @@ post '/sessions' do
   if @user
     if @user.password == params[:password]
       session[:id] = @user.id
-      redirect '/'
-    else
-      redirect '/'
     end
+    redirect '/'
   else
     redirect '/users/new'
   end
@@ -70,16 +61,19 @@ post '/tags' do
 end
 
 get '/tags/:tagsearch' do
+if logged_in?
   @client = Instagram.client(:access_token => session[:access_token])
   @tags = @client.tag_search(params[:tagsearch])
   usertags = User.find_by_id(session[:id]).tags
   @usertags = usertags.map { |tag| tag.name }
+end
   erb :tag
 end
 
 post '/users/:id/tag/:name' do
   tag = Tag.find_by_name(params[:name])
   user = User.find_by_id(session[:id])
+  # FIND OR CREATE !!!!
   if tag != nil
     user.tags << tag
   else
@@ -98,11 +92,9 @@ end
 
 #------IMAGES------
 get '/images' do
-  if logged_in?
-    client = Instagram.client(:access_token => session[:access_token])
-    @media = client.media_popular
-    erb :browse
-  end
+  client = Instagram.client(:access_token => session[:access_token])
+  @media = client.media_popular
+  erb :browse
 end
 
 get '/users/:id/images' do

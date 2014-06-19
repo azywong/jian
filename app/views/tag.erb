@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <h2>Tag Name = <%= @tags[0].name %>. Media Count =  <%= @tags[0].media_count %>. </h2>
   <% @client.tag_recent_media(@tags[0].name).each do |media_item| %>
     <div class="source">
@@ -16,3 +17,6 @@
       </div>
     </div>
   <% end %>
+<% else %>
+  <%= erb :not_logged_in %>
+<% end %>

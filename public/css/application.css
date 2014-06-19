@@ -153,7 +153,7 @@ ul.header_form li {
 
 /* TITLE STYLES */
 h2 {
-  margin-bottom: 1em;
+  margin-bottom: 3em;
   padding: 3%;
   background-color: #FFFFFF;
   border-radius: 7px;
@@ -218,7 +218,7 @@ a:hover {
 
 /*SOUCE STYLES*/
 .source a {
-  background-color:tomato;
+  background-color:#696969;
   color: #FFFFFF;
   font-weight: bold;
   padding: 2% 2% 0% 2%;
@@ -227,5 +227,5 @@ a:hover {
 }
 .source a:hover {
   text-decoration: none;
-  background-color: #696969;
+  background-color: tomato;
 }

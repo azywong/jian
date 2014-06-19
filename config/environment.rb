@@ -49,3 +49,10 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+CALLBACK_URL = "http://localhost:9393/oauth/callback/"
+
+Instagram.configure do |config|
+  config.client_id = "bbda684a4c6041308b56b2eb99b381a4"
+  config.client_secret = "c2d5fd84ed594c93b1b19a7dfb10a02a"
+end
