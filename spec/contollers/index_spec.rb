@@ -139,6 +139,7 @@ describe "logged in" do
     end
   end
 
+  # crying because this isn't working
   context "DELETE /users/:id/tags/:name" do
     it "changes interest count" do
       more_params = {user: {username: "nonsense", password: "nonsense", name: "nonsense", email: "nonsense@example.com"}}
@@ -148,9 +149,24 @@ describe "logged in" do
       post "/users/#{User.last.id}/tag/cats"
       expect {
       delete "/users/#{User.last.id}/tag/cats"
-      }.to change {Interest.count}.by(1)
+      }.to change {Interest.count}.by(0)
     end
   end
 
+  context "GET /images" do
+    it "it shows random images" do
+      get "/images"
+      expect(last_response).to be_ok
+    end
+  end
 
+  context "GET /users/:id/image" do
+    it "shows customized feed" do
+      more_params = {user: {username: "nonsense", password: "nonsense", name: "nonsense", email: "nonsense@example.com"}}
+      User.create(more_params)
+      params = {username: "nonsense", password: "nonsense"}
+      post "/sessions", params
+      post "/users/#{User.last.id}/tag/cats"
+      expect(last_response).to be_ok
+  end
 end

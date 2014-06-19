@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('.tag a').on('click', addTag)
-  $('.bubble table tr td input').on('click', deleteTag)
+  $('.roundbubble table tr td input').on('click', deleteTag)
 });
 
 var addTag = function(event){
