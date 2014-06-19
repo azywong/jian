@@ -1,7 +1,7 @@
   <% if connected? != nil %>
     <%= erb :feed %>
   <% elsif logged_in? != nil %>
-    <div class="bubble">
+    <div class="roundbubble">
       <p><a href="/oauth/connect">connect with Instagram?</a></p>
     </div>
   <% else %>

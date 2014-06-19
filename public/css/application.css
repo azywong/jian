@@ -36,7 +36,7 @@ body {
 }
 
 footer {
-  background-color: #DDDDDD;
+  background-color: #CDCDCD;
   color: #696969;
   height: 4em;
   text-align: center;
@@ -56,6 +56,15 @@ footer {
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
 }
+
+.roundbubble {
+  margin-bottom: 5em;
+  padding: 3%;
+  background-color: #FFFFFF;
+  border-radius: 7px;
+}
+
+
 
 /* USERBAR STYLES */
 .userbar {
@@ -205,14 +214,14 @@ a:hover {
   text-decoration: underline;
 }
 
-.bubble table {
+.roundbubble table {
   margin: 0 auto;
   width: 80%;
 }
-.bubble td {
+.roundbubble td {
   padding: 3%;
 }
-.bubble table tr:nth-child(even) {
+.roundbubble table tr:nth-child(even) {
   background-color: #C6F1FF;
 }
 

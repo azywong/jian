@@ -84,7 +84,7 @@ post '/users/:id/tag/:name' do
 end
 
 delete '/users/:id/tag/:name' do
-  user = User.find_by_id(params[:id])
+  user = User.find_by_id(session[:id])
   tags = user.tags.where(name:params[:name]).destroy_all
   params[:url].to_json
 end

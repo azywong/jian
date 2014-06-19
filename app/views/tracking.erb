@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <% if @user.tags.length > 0 %>
     <h2>Tags You're Tracking</h2>
-    <div class="bubble">
+    <div class="roundbubble">
       <table>
         <% @user.tags.uniq.each do |tag| %>
           <tr class="<%= tag.name %>">
@@ -16,7 +16,7 @@
       </table>
     </div>
   <% else %>
-  <div class="bubble">
+  <div class="roundbubble">
     <p>You have no tracked tags!  Go search for something</p>
   </div>
   <% end %>

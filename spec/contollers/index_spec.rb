@@ -127,16 +127,30 @@ describe "logged in" do
     end
   end
 
-  # context "POST /users/:id/tags/:name" do
-  #   it "??? ajax" do
-  #     more_params = {user: {username: "nonsense", password: "nonsense", name: "nonsense", email: "nonsense@example.com"}}
-  #     User.create(more_params)
-  #     params = {username: "nonsense", password: "nonsense"}
-  #     post "/sessions", params
-  #     get "/tags/cats"
-  #     expect(last_response.body).to include "cats"
-  #   end
-  # end
+  context "POST /users/:id/tag/:name" do
+    it "changes interest count" do
+      more_params = {user: {username: "nonsense", password: "nonsense", name: "nonsense", email: "nonsense@example.com"}}
+      User.create(more_params)
+      params = {username: "nonsense", password: "nonsense"}
+      post "/sessions", params
+      expect {
+      post "/users/#{User.last.id}/tag/cats"
+      }.to change {Interest.count}.by(1)
+    end
+  end
+
+  context "DELETE /users/:id/tags/:name" do
+    it "changes interest count" do
+      more_params = {user: {username: "nonsense", password: "nonsense", name: "nonsense", email: "nonsense@example.com"}}
+      User.create(more_params)
+      params = {username: "nonsense", password: "nonsense"}
+      post "/sessions", params
+      post "/users/#{User.last.id}/tag/cats"
+      expect {
+      delete "/users/#{User.last.id}/tag/cats"
+      }.to change {Interest.count}.by(1)
+    end
+  end
 
 
 end
