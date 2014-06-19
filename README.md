@@ -27,14 +27,18 @@
   * top images/browse
   * aggregate feed
   * connect with instagram
+  * user sees styled site
 
 ####To Implement:
   * rspec testing
+  * refactoring
 
 ####Stretch:
   * error handling
-  * icons for userbar
   * like/comment on images
   * choose interesting tags on sign up
   * implement tag blocking
 
+
+##Known Issues
+  * searchbar cannot search multiple words separated by spaces
